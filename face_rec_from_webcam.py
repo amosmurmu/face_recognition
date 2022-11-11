@@ -15,21 +15,19 @@ import numpy as np
 video_capture = cv2.VideoCapture(0)
 
 # Load a sample picture and learn how to recognize it.
-jobs_image = face_recognition.load_image_file("./images/jobs_1.jpg")
+jobs_image = face_recognition.load_image_file("./known_images/jobs_1.jpg")
 jobs_face_encoding = face_recognition.face_encodings(jobs_image)[0]
-
-# # Load a second sample picture and learn how to recognize it.
-# biden_image = face_recognition.load_image_file("biden.jpg")
-# biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
+jobs_face_location = face_recognition.face_locations(jobs_image)
+jobs_face_landmarks = face_recognition.face_landmarks(jobs_image)
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
     jobs_face_encoding,
-    # biden_face_encoding
+    jobs_face_location,
+    jobs_face_landmarks,
 ]
 known_face_names = [
     "Steve Jobs",
-    # "Joe Biden"
 ]
 
 # Initialize some variables
