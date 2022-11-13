@@ -7,8 +7,9 @@ image = cv2.imread("./known_images/jobs_1.jpg")
 image_recog = face_recognition.load_image_file("./known_images/jobs_1.jpg")
 
 # Release handle to the webcam
-cv2.imshow('displaying image', image)
 cv2.cvtColor(src=image, code=cv2.COLOR_BGR2RGB)
+cv2.imshow('displaying image', image)
+
 
 if cv2.waitKey(0) & 0xFF == ord('q'):
 	pass
